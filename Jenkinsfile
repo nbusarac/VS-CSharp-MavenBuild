@@ -14,11 +14,6 @@ pipeline {
             steps {
                 bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:compile dotnet:test"
             }
-            post {
-                always {
-                    
-                }
-            }
         }
         stage('SonarQube analysis') {
             steps {
