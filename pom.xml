@@ -4,7 +4,6 @@
 <groupId>MavenBuildTesting</groupId>
 <artifactId>MavenBuildTesting-parent</artifactId>
 <version>1.0-SNAPSHOT</version>
-<packaging>dotnet</packaging>
 
 <properties>
     <dotnet.2.0.sdk.directory>
@@ -44,4 +43,5 @@
         </plugin>
     </plugins>
 </build>
+<packaging>dotnet</packaging>
 </project>
