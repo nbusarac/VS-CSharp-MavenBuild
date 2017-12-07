@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                bat "${mvnHome}\\bin\\mvn -B verify"
+                bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:compile dotnet:test"
             }
             post {
                 always {
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat '${mvnHome}\\bin\\mvn -B -DskipTests clean package'
+                bat '${mvnHome}\\bin\\mvn dotnet:clean dotnet:compile dotnet:test install'
             }
         }
     }
