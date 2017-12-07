@@ -36,10 +36,10 @@
     <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
-        <sonar.jacoco.reportPaths>../target/jacoco.exec</sonar.jacoco.reportPaths>
-        <sonar.host.url>http://10.113.39.200:9000/sonar/</sonar.host.url>
         <configuration>
             <language>cs</language>
+            <sonar.jacoco.reportPaths>../target/jacoco.exec</sonar.jacoco.reportPaths>
+            <sonar.host.url>http://10.113.39.200:9000/sonar/</sonar.host.url>
         </configuration>
         </plugin>
     </plugins>
