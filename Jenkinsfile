@@ -11,7 +11,7 @@ pipeline {
 
     stages {
         stage('checkout') {
-            checkout scm
+            bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:compile"
         }
         stage('Test') {
             steps {
