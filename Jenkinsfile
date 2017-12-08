@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         def javaHome = tool 'JDK8';
-        def scannerHome = tool 'sonarScanner';
+        def scannerHome = tool 'MSsonarScanner';
         def mvnHome = tool 'Maven3';
         JAVA_HOME = "${javaHome}";
     }
@@ -18,7 +18,9 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    bat "${scannerHome}\\bin\\sonar-scanner"
+                    bat "${scannerHome}\\bin\\SonarQube.Scanner.MSBuild.exe begin /k:'org.sonarqube:sonarqube-scanner-msbuild' /n:"Project Name" /v:'1.0'"
+                    bat "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe /t:Rebuild"
+                    bat "${scannerHome}\\bin\\SonarQube.Scanner.MSBuild.exe end"
                 }
             }
         }
