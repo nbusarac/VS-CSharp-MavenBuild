@@ -5,6 +5,7 @@ pipeline {
     environment {
         def javaHome = tool 'JDK8';
         def scannerHome = tool 'MSsonarScanner';
+        def mvnHome = tool 'Maven3';
         JAVA_HOME = "${javaHome}";
         def nugetHome = tool 'Nuget';
     }
