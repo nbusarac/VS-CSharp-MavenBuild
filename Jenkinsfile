@@ -18,7 +18,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    bat "${scannerHome}\\bin\\SonarQube.Scanner.MSBuild.exe begin"
+                    bat "${scannerHome}\\SonarQube.Scanner.MSBuild.exe begin"
                 }
             }
         }
