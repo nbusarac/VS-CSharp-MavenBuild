@@ -7,6 +7,7 @@ pipeline {
         def scannerHome = tool 'sonarScanner';
         def mvnHome = tool 'Maven3';
         JAVA_HOME = "${javaHome}";
+        def nugetHome = tool 'Nuget';
     }
 
     stages {
