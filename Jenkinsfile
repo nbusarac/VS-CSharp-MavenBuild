@@ -19,7 +19,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonar') {
                     bat "${scannerHome}\\SonarQube.Scanner.MSBuild.exe begin /k:\"org.sonarqube:sonarqube-scanner-msbuild\" /n:\"Example of SonarQube Scanner for MSBuild Usage\" /v:\"1.0\""
-                    bat 'C:\\Program\ Files\ (x86)\\Microsoft\ Visual\ Studio\\2017\\BuildTools\\MSBuild\\15.0\\Bin\\MSBuild.exe /t:Rebuild'
+                    bat "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\MSBuild\\15.0\\Bin\\MSBuild.exe /t:Rebuild"
                     bat "${scannerHome}\\SonarQube.Scanner.MSBuild.exe end"
                 }
             }
