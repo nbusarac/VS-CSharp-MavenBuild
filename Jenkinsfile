@@ -6,7 +6,7 @@ pipeline {
         def javaHome = tool 'JDK8';
         def scannerHome = tool 'sonarScanner';
         def mvnHome = tool 'Maven3';
-        def nugetHome = C:\\Jenkins\\tools\\nuget";
+        def nugetHome = 'C:\\Jenkins\\tools\\nuget';
         JAVA_HOME = "${javaHome}";
     }
 
