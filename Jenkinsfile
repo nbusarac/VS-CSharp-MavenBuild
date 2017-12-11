@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:build dotnet:test"
+                bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:test"
             }
         }
         stage('SonarQube analysis') {
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:compile dotnet:test install"
+                bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:build install"
             }
         }
     }
