@@ -1,47 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://maven.apache.org/POM/4.0.0">
-  <modelVersion>4.0.0</modelVersion>
-<groupId>MavenBuildTesting</groupId>
-<artifactId>MavenBuildTesting-parent</artifactId>
-<version>1.0-SNAPSHOT</version>
-<packaging>pom</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>MavenBuildTesting</groupId>
+    <artifactId>dotnet-maven-examples</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-<properties>
-    <dotnet.2.0.sdk.directory>
-      C:/WINDOWS/Microsoft.NET/Framework/v2.0.50727
-    </dotnet.2.0.sdk.directory> 
-    <dotnet.3.5.sdk.directory>
-      C:/WINDOWS/Microsoft.NET/Framework/v3.5
-    </dotnet.3.5.sdk.directory> 
-    <dotnet.4.0.sdk.directory>
-      C:/WINDOWS/Microsoft.NET/Framework/v4.0.30319
-    </dotnet.4.0.sdk.directory> 
-    <fxcop.directory>
-      c:/Program Files/Microsoft FxCop 1.36
-    </fxcop.directory>
-    <visual.studio.solution>ClassLibrary1.sln</visual.studio.solution>
-    <visual.test.project.pattern>*.Tests</visual.test.project.pattern>
-    <dotnet.tool.version>3.5</dotnet.tool.version>
-    <sonar.language>cs</sonar.language>
-</properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.sonar-plugins.dotnet</groupId>
+                <artifactId>maven-dotnet-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <buildConfiguration>Debug</buildConfiguration>
+                    <environment>
+                        <THIS_IS_FROM_MAVEN>Hello dotnet</THIS_IS_FROM_MAVEN>
+                    </environment>
+                </configuration>
+            </plugin>
 
-<build>
-    <plugins>
-    <plugin>
-        <groupId>org.codehaus.sonar-plugins.dotnet</groupId>
-        <artifactId>maven-dotnet-plugin</artifactId>
-        <extensions>true</extensions>
-    </plugin>
-
-    <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <configuration>
-            <language>cs</language>
-            <sonar.jacoco.reportPaths>../target/jacoco.exec</sonar.jacoco.reportPaths>
-            <sonar.host.url>http://10.113.39.200:9000/sonar/</sonar.host.url>
-        </configuration>
-        </plugin>
-    </plugins>
-</build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>dotnet:update-versions</preparationGoals>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
