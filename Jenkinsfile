@@ -13,6 +13,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                bat "${nugetHome}\\nuget.exe restore .\\UnitTestProject1\\"
                 bat "${mvnHome}\\bin\\mvn dotnet:clean dotnet:build dotnet:test"
             }
         }
